@@ -1,45 +1,58 @@
 (() => {
-  const root = document.documentElement;
-  const sidebar = document.querySelector('.sidebar');
-  const overlay = document.querySelector('.overlay');
+  const header = document.querySelector('[data-header]');
   const menuButton = document.querySelector('[data-menu]');
-  const searchInput = document.querySelector('[data-search]');
-  const results = document.querySelector('[data-results]');
+  const mobileNav = document.querySelector('[data-mobile-nav]');
+  const sectionLinks = [...document.querySelectorAll('.section-link')];
+  const sections = [...document.querySelectorAll('[data-section]')];
 
-  const BASE = '/docs/';
-  const pages = [
-    {title:'الرئيسية',desc:'بوابة وثائق HAKAMIQ',url:BASE},
-    {title:'البدء',desc:'طريقة استخدام الوثائق والتنقل بينها',url:BASE+'getting-started/'},
-    {title:'المحاكيات',desc:'أدلة المحاكيات والمنصات',url:BASE+'emulators/'},
-    {title:'الأدوات',desc:'أدوات HAKAMIQ والمشاريع المساندة',url:BASE+'tools/'},
-    {title:'الأسئلة الشائعة',desc:'إجابات مختصرة للمشاكل الشائعة',url:BASE+'faq/'}
-  ];
+  const updateHeader = () => {
+    header?.classList.toggle('is-scrolled', window.scrollY > 8);
+  };
 
-  function setMenu(open){
-    if (!sidebar || !overlay) return;
-    sidebar.classList.toggle('open', open);
-    overlay.classList.toggle('open', open);
-    menuButton?.setAttribute('aria-expanded', String(open));
-    document.body.style.overflow = open ? 'hidden' : '';
-  }
-  menuButton?.addEventListener('click',()=>setMenu(!sidebar?.classList.contains('open')));
-  overlay?.addEventListener('click',()=>setMenu(false));
-  window.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
-  sidebar?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+  const setMenu = (open) => {
+    if (!menuButton || !mobileNav) return;
+    menuButton.setAttribute('aria-expanded', String(open));
+    menuButton.setAttribute('aria-label', open ? 'إغلاق القائمة' : 'فتح القائمة');
+    mobileNav.classList.toggle('open', open);
+    header?.classList.toggle('menu-open', open);
+  };
 
-  if(searchInput && results){
-    searchInput.addEventListener('input',()=>{
-      const q=searchInput.value.trim().toLowerCase();
-      results.innerHTML='';
-      if(!q){results.classList.remove('open');return}
-      const found=pages.filter(p=>(p.title+' '+p.desc).toLowerCase().includes(q));
-      results.innerHTML=found.length
-        ? found.map(p=>`<a href="${p.url}"><b>${p.title}</b><span>${p.desc}</span></a>`).join('')
-        : '<a><b>لا توجد نتائج</b><span>جرّب عبارة بحث أخرى</span></a>';
-      results.classList.add('open');
+  menuButton?.addEventListener('click', () => {
+    setMenu(!mobileNav?.classList.contains('open'));
+  });
+
+  mobileNav?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setMenu(false));
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') setMenu(false);
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!mobileNav?.classList.contains('open')) return;
+    if (event.target instanceof Element && !event.target.closest('.site-header')) setMenu(false);
+  });
+
+  const setActiveSection = (id) => {
+    sectionLinks.forEach((link) => {
+      link.classList.toggle('is-active', link.getAttribute('href') === `#${id}`);
     });
-    document.addEventListener('click',e=>{
-      if(!e.target.closest('.search')) results.classList.remove('open');
+  };
+
+  if ('IntersectionObserver' in window && sections.length) {
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible?.target?.id) setActiveSection(visible.target.id);
+    }, {
+      rootMargin: '-18% 0px -65% 0px',
+      threshold: [0, 0.1, 0.3, 0.6]
     });
+    sections.forEach((section) => observer.observe(section));
   }
+
+  window.addEventListener('scroll', updateHeader, { passive: true });
+  updateHeader();
 })();
