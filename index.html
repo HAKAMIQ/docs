@@ -1,72 +1,169 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>الرئيسية | HAKAMIQ Docs</title>
-<meta name="description" content="وثائق HAKAMIQ التقنية">
-<meta name="theme-color" content="#0a0a0b">
-<link rel="stylesheet" href="/docs/assets/styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Documentation | HAKAMIQ</title>
+  <meta name="description" content="وثائق HAKAMIQ التقنية: البدء، المحاكيات، الأدوات، التشغيل، حل المشاكل والروابط.">
+  <meta name="theme-color" content="#05060b">
+  <link rel="stylesheet" href="/docs/assets/styles.css">
 </head>
 <body>
-<header class="topbar">
-  <div class="topbar-inner">
-    <button class="mobile-menu" type="button" data-menu aria-label="فتح القائمة" aria-expanded="false">☰</button>
-    <a class="brand" href="/docs/">
-      <span class="brand-mark">H</span>
-      <span>HAKAMIQ <small>Documentation</small></span>
-    </a>
-    <div class="search">
-      <span class="search-icon">⌕</span>
-      <input data-search type="search" placeholder="ابحث في الوثائق..." aria-label="بحث">
-      <div class="search-results" data-results></div>
-    </div>
-    <div class="header-actions">
-      <a class="icon-btn" style="display:grid;place-items:center;text-decoration:none" href="https://github.com/HAKAMIQ" target="_blank" rel="noopener" aria-label="GitHub">GH</a>
-    </div>
-  </div>
-</header>
-<div class="overlay"></div>
-<div class="layout">
-  <aside class="sidebar">
-<div class="nav-title">الوثائق</div>
-<nav class="nav">
-  <a data-nav="home" href="/docs/"><span class="dot"></span>الرئيسية</a>
-  <a data-nav="getting-started" href="/docs/getting-started/"><span class="dot"></span>البدء</a>
-</nav>
-<div class="nav-title">المحتوى</div>
-<nav class="nav">
-  <a data-nav="emulators" href="/docs/emulators/"><span class="dot"></span>المحاكيات</a>
-  <a data-nav="tools" href="/docs/tools/"><span class="dot"></span>الأدوات</a>
-  <a data-nav="faq" href="/docs/faq/"><span class="dot"></span>الأسئلة الشائعة</a>
-</nav>
-<div class="nav-title">روابط</div>
-<nav class="nav">
-  <a href="https://github.com/HAKAMIQ" target="_blank" rel="noopener"><span class="dot"></span>GitHub</a>
-  <a href="https://hakami-q.pages.dev/" target="_blank" rel="noopener"><span class="dot"></span>موقع HAKAMIQ</a>
-</nav>
-</aside>
-  <main class="content">
-    
-<section class="hero">
-  <span class="eyebrow">● HAKAMIQ DOCUMENTATION</span>
-  <h1>وثائق HAKAMIQ</h1>
-  <p class="lead">مركز منظم للشروحات التقنية، أدلة المحاكيات، الأدوات، وطريقة الوصول إلى المعلومات بسرعة بدون تشتيت.</p>
-  <div class="hero-actions">
-    <a class="btn primary" href="/docs/getting-started/">ابدأ من هنا</a>
-    <a class="btn" href="/docs/emulators/">استعرض المحاكيات</a>
-  </div>
-</section>
-<div class="grid">
-  <a class="card" href="/docs/getting-started/"><strong>البدء <span class="arrow">←</span></strong><p>تعرف على بنية الوثائق وكيفية الوصول للمعلومة.</p></a>
-  <a class="card" href="/docs/emulators/"><strong>المحاكيات <span class="arrow">←</span></strong><p>صفحات مرتبة حسب المنصة والمحاكي.</p></a>
-  <a class="card" href="/docs/tools/"><strong>الأدوات <span class="arrow">←</span></strong><p>توثيق أدوات ومشاريع HAKAMIQ.</p></a>
-</div>
+  <a class="skip-link" href="#main">تخطي إلى المحتوى</a>
 
-    <footer class="footer">© 2026 HAKAMIQ — Documentation</footer>
+  <header class="site-header" data-header>
+    <div class="container nav-row">
+      <a class="wordmark" href="/docs/" aria-label="HAKAMIQ Docs">HAKAMI<span>Q</span></a>
+
+      <nav class="primary-nav" aria-label="التنقل الرئيسي">
+        <a href="#overview">الرئيسية</a>
+        <a class="is-active" href="#documentation">الوثائق</a>
+        <a href="#emulators">المحاكيات</a>
+        <a href="#tools">الأدوات</a>
+        <a href="#faq">الأسئلة الشائعة</a>
+      </nav>
+
+      <a class="header-cta" href="https://github.com/HAKAMIQ" target="_blank" rel="noopener">GitHub</a>
+
+      <button class="menu-button" type="button" data-menu aria-expanded="false" aria-controls="mobile-nav" aria-label="فتح القائمة">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <nav id="mobile-nav" class="mobile-nav" data-mobile-nav aria-label="التنقل على الجوال">
+      <a href="#overview">الرئيسية</a>
+      <a href="#documentation">الوثائق</a>
+      <a href="#emulators">المحاكيات</a>
+      <a href="#tools">الأدوات</a>
+      <a href="#faq">الأسئلة الشائعة</a>
+      <a href="https://github.com/HAKAMIQ" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="overview">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <p class="kicker">Documentation</p>
+        <h1>وثائق HAKAMIQ</h1>
+        <p class="hero-copy">مكان واحد للشروحات التقنية، أدلة المحاكيات، الأدوات، وخطوات التشغيل وحل المشاكل.</p>
+      </div>
+    </section>
+
+    <section class="container docs-layout" id="documentation">
+      <aside class="docs-aside">
+        <nav class="section-nav" aria-label="أقسام الوثائق">
+          <a class="section-link is-active" href="#start"><span>01</span>البدء</a>
+          <a class="section-link" href="#emulators"><span>02</span>المحاكيات</a>
+          <a class="section-link" href="#tools"><span>03</span>الأدوات</a>
+          <a class="section-link" href="#running"><span>04</span>التشغيل</a>
+          <a class="section-link" href="#troubleshooting"><span>05</span>حل المشاكل</a>
+          <a class="section-link" href="#faq"><span>06</span>الأسئلة الشائعة</a>
+          <a class="section-link" href="#links"><span>07</span>الروابط</a>
+          <div class="section-nav-footer">
+            <a href="https://hakami-q.pages.dev/" target="_blank" rel="noopener">موقع HAKAMIQ ←</a>
+          </div>
+        </nav>
+      </aside>
+
+      <div class="docs-content">
+        <section class="doc-section" id="start" data-section>
+          <h2><span>01</span>البدء</h2>
+          <div class="prose">
+            <p>هذه الوثائق هي نقطة البداية للوصول إلى شروحات HAKAMIQ بشكل منظم. اختر القسم المطلوب من القائمة الجانبية وانتقل مباشرة إلى المحتوى.</p>
+            <div class="notice">
+              <span class="notice-icon" aria-hidden="true">i</span>
+              <p>الوثائق مخصصة للشرح والاستخدام التقني فقط، وسيتم توسيع الأقسام تدريجيًا بدون تغيير بنية الموقع.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="emulators" data-section>
+          <h2><span>02</span>المحاكيات</h2>
+          <div class="prose">
+            <p>قسم مخصص لأدلة المحاكيات والمنصات، مع ترتيب المحتوى بحسب الجهاز والمحاكي بدل تجميع المعلومات في صفحة واحدة.</p>
+            <ul class="bullet-list">
+              <li>PlayStation: RPCS3، PCSX2، DuckStation، Vita3K، shadPS4.</li>
+              <li>Nintendo: Dolphin، Cemu، ومحاكيات Switch.</li>
+              <li>Xbox: Xenia وxemu.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="doc-section" id="tools" data-section>
+          <h2><span>03</span>الأدوات</h2>
+          <div class="prose">
+            <p>توثيق الأدوات والمشاريع يكون بنفس القالب: المتطلبات، التثبيت، الاستخدام، والتحقق من النتيجة.</p>
+            <div class="code-block">
+              <div class="code-title">بنية مقترحة</div>
+              <pre><code>Requirements
+Installation
+Usage
+Verification
+Troubleshooting</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="running" data-section>
+          <h2><span>04</span>التشغيل</h2>
+          <div class="prose">
+            <p>كل دليل تشغيل يوضح المتطلبات أولًا ثم خطوات التنفيذ بشكل متسلسل، مع أوامر منفصلة عند الحاجة.</p>
+            <div class="code-block">
+              <div class="code-title">مثال</div>
+              <pre><code>1. نزّل الإصدار المناسب
+2. فك الضغط
+3. شغّل التطبيق
+4. طبّق الإعدادات الموصى بها</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="troubleshooting" data-section>
+          <h2><span>05</span>حل المشاكل</h2>
+          <div class="prose">
+            <div class="trouble-list">
+              <div><h3>المحاكي لا يعمل؟</h3><p>راجع متطلبات النظام، تعريف كرت الشاشة، والملفات المطلوبة قبل تغيير الإعدادات.</p></div>
+              <div><h3>الأداء منخفض؟</h3><p>تحقق من المعالج، واجهة الرسوميات، دقة العرض، وإعدادات المحاكي الخاصة باللعبة.</p></div>
+              <div><h3>تحتاج مساعدة؟</h3><p>استخدم القنوات الرسمية للمشروع أو أقسام المساعدة في مجتمع HAKAMIQ مع إرفاق تفاصيل المشكلة.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="faq" data-section>
+          <h2><span>06</span>الأسئلة الشائعة</h2>
+          <div class="prose">
+            <div class="faq-list">
+              <details><summary>هل يحتاج الموقع إلى استضافة مدفوعة؟</summary><p>لا، الموقع منشور مباشرة عبر GitHub Pages.</p></details>
+              <details><summary>هل تعمل الوثائق على الجوال؟</summary><p>نعم، التخطيط والقائمة العلوية يتكيفان مع الشاشات الصغيرة.</p></details>
+              <details><summary>هل يمكن إضافة صفحات وأقسام لاحقًا؟</summary><p>نعم، البنية قابلة للتوسع وإضافة محتوى جديد بدون تغيير رابط الموقع الأساسي.</p></details>
+            </div>
+          </div>
+        </section>
+
+        <section class="doc-section" id="links" data-section>
+          <h2><span>07</span>الروابط</h2>
+          <div class="prose">
+            <div class="link-pills">
+              <a href="https://github.com/HAKAMIQ" target="_blank" rel="noopener">GitHub ↗</a>
+              <a href="https://hakami-q.pages.dev/" target="_blank" rel="noopener">HAKAMIQ ↗</a>
+            </div>
+            <p class="muted">سيتم ربط كل مشروع بصفحته الخاصة داخل الوثائق مع توسع المحتوى.</p>
+          </div>
+        </section>
+      </div>
+    </section>
   </main>
-</div>
-<script src="/docs/assets/app.js"></script>
-<script>document.querySelector('[data-nav="home"]')?.classList.add('active');</script>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <span class="wordmark footer-wordmark">HAKAMI<span>Q</span></span>
+      <p>Documentation</p>
+      <p>© 2026 HAKAMIQ</p>
+    </div>
+  </footer>
+
+  <script src="/docs/assets/app.js"></script>
 </body>
 </html>
